@@ -2,7 +2,7 @@
 
 注意点：Firebaseにアクセスするためのアクセスキーを公開しないように気をつけるべし(今回はプライベートかつ練習なのでおけい)
 
-[参考にしたいサイト](https://rightcode.co.jp/blog/information-technology/golang-introduction-firestore)
+[参考にしたサイト](https://rightcode.co.jp/blog/information-technology/golang-introduction-firestore)
 
 ### FirebaseとFirestoreの違い
 jsのSDKを組み込むだけで、簡単にリアルタイム通信・json storeが実現できるFirebase Realtime Database、それをさらに進化させて複雑なデータ検索
@@ -15,16 +15,20 @@ jsのSDKを組み込むだけで、簡単にリアルタイム通信・json stor
 ![データベース作成](./images/golang_01.png "サンプル")
 
 構築完了
+
+
 ![データベース完成](./images/golang_05.png "サンプル")
 
 今回はGCPではなく、ローカルで作業を行うので「各自のサーバで初期化する」
 
 まずはIAMと管理→サービスアカウントを作成
+
 ![サービスアカウント作成](./images/golang_06.png "サンプル")
 
 
 データベースにアクセスするための鍵を作成(今回はJSON)
 鍵は自動的にローカルにダウンロードされるのでディレクトリに配置する
+
 ![データベース作成](./images/golang_10.png "サンプル")
 
 あとは下記のコードで接続と初期化を行う
@@ -41,7 +45,7 @@ import (
 )
 
 func main() {
-	// Use a service account
+	// 初期化
 	ctx := context.Background()
 	sa := option.WithCredentialsFile("path/my-project.json")
 	app, err := firebase.NewApp(ctx, nil, sa)
@@ -53,6 +57,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	//切断
 	defer client.Close()
 }
 ```
