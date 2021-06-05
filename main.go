@@ -11,7 +11,7 @@ import (
 func main() {
 	// Use a service account
 	ctx := context.Background()
-	sa := option.WithCredentialsFile("./path/myproject-63870-firebase-adminsdk-iv088-d9893bb49c.json")
+	sa := option.WithCredentialsFile("ここにダウンロードした鍵ファイルのパスを書く")
 	app, err := firebase.NewApp(ctx, nil, sa)
 	if err != nil {
 		log.Fatalln(err)
