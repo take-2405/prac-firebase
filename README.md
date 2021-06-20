@@ -1,7 +1,5 @@
 # prac-firebase
 
-注意点：Firebaseにアクセスするためのアクセスキーを公開しないように気をつけるべし(今回はプライベートかつ練習なのでおけい)
-
 [参考にしたサイト](https://rightcode.co.jp/blog/information-technology/golang-introduction-firestore)
 
 ### FirebaseとFirestoreの違い
